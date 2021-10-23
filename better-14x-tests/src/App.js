@@ -1,7 +1,8 @@
 import logo from './logo.svg';
 import './App.css';
-import { BrowserRouter as Router, Route} from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import Home from './pages/home/Home';
+import Register from './pages/home/Register'
 
 
 function App() {
@@ -9,7 +10,10 @@ function App() {
     <div className="App">
       <header className="App-header">
         <Router>
-          <Route path="/" component={Home} />
+          <Switch>
+            <Route path="/" exact component={() => <Home />} />
+            <Route path="/register" component={() => <Register />} />
+          </Switch>
         </Router>
       </header>
     </div>
