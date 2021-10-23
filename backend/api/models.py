@@ -13,6 +13,9 @@ class User(db.Model):
     email = db.Column(db.String(100), unique=True)
     password_hash = db.Column(db.String(128))
 
+    # setup one to many relationships 
+    tests = db.relationship('Test', backref='owner') # test table gets a psuedo column of 'owner'
+
     # stores a hash of the pw in the class 
     def hash_pw(self, password):
         self.password_hash = pwd_context.encrypt(password)
@@ -44,3 +47,26 @@ class User(db.Model):
 
     def __repr__(self):
         return f'User: {self.username}, Email: {self.email}'
+
+# many tests associated with one user 
+class Test(db.Model):
+    __tablename__ = "tests"
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(80))
+    score = db.Column(db.Integer)
+    teacher = db.Column(db.String(80))
+    course = db.Column(db.String(80))
+
+    # add foreignkey column (refers to PK of User)
+    owner_id = db.Column(db.Integer, db.ForeignKey('users.id')) 
+
+    def __init__(self, name, score, course, teacher, owner_id):
+        self.name = name
+        self.score = score 
+        self.course = course
+        self.teacher = teacher
+        self.owner_id = owner_id
+
+    def __repr__(self):
+        return f'Test: {self.name}, User: {self.owner_id}'
+

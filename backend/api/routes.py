@@ -3,7 +3,7 @@ from flask_restful import Api
 from flask_httpauth import HTTPBasicAuth
 
 from __init__ import app 
-from models import db, User
+from models import db, User, Test
 
 api = Api()
 

@@ -10,5 +10,9 @@ from routes import *
 # Init db from the models.py file 
 db.init_app(app)
 
+# comment out when don't want to wipe db
+""" with app.app_context():
+    db.create_all() """
+
 if __name__ == "__main__":
     app.run(debug=True)
