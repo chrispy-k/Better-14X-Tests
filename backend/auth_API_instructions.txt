@@ -1,0 +1,14 @@
+Post/Register a user with 
+curl -i -X POST -H "Content-Type: application/json" -d '{"username":"USERNAME","email":"EMAIL","password":"PASSWORD"}' http://127.0.0.1:5000/api/auth/register
+
+Get the token for a username/password pair
+curl -u USERNAME:PASSWORD -i -X GET http://127.0.0.1:5000/api/auth/token
+
+
+Test a request for a protected resource
+
+1. Username/password method
+curl -u USERNAME:PASSWORD -i -X GET http://127.0.0.1:5000/api/resource
+
+2. Token method 
+curl -u TOKEN:unused -i -X GET http://127.0.0.1:5000/api/resource
