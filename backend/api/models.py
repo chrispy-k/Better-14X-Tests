@@ -60,6 +60,9 @@ class Test(db.Model):
     # add foreignkey column (refers to PK of User)
     owner_id = db.Column(db.Integer, db.ForeignKey('users.id')) 
 
+    # one test -> many questions
+    tests = db.relationship('Question', backref='test') # question gets a test column
+
     def __init__(self, name, score, course, teacher, owner_id):
         self.name = name
         self.score = score 
@@ -70,3 +73,23 @@ class Test(db.Model):
     def __repr__(self):
         return f'Test: {self.name}, User: {self.owner_id}'
 
+# many questions associated with one test 
+class Question(db.Model):
+    __tablename__ = "questions"
+    id = db.Column(db.Integer, primary_key=True)
+    number = db.Column(db.Integer)
+    description = db.Column(db.String(600))
+    student_response = db.Column(db.String(1000))
+    score = db.column(db.Integer)
+
+    # establish many to one w/ Test model 
+    test_id = db.Column(db.Integer, db.ForeignKey('tests.id'))
+
+    def __init__(self, number, description, student_response, score):
+        self.number = number
+        self.description = description
+        self.student_response = student_response
+        self.score = score 
+    
+    def __repr__(self):
+        return f'Question #: {self.number}, Score: {self.score}'
