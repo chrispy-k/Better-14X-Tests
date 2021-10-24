@@ -85,11 +85,12 @@ class Question(db.Model):
     # establish many to one w/ Test model 
     test_id = db.Column(db.Integer, db.ForeignKey('tests.id'))
 
-    def __init__(self, number, description, student_response, score):
+    def __init__(self, number, description, student_response, score, test_id):
         self.number = number
         self.description = description
         self.student_response = student_response
         self.score = score 
+        self.test_id = test_id
     
     def __repr__(self):
         return f'Question #: {self.number}, Score: {self.score}'

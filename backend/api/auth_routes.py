@@ -3,7 +3,7 @@ from flask_restful import Api
 from flask_httpauth import HTTPBasicAuth
 
 from __init__ import app 
-from models import db, User, Test
+from models import Question, db, User, Test
 
 api = Api()
 
@@ -13,6 +13,33 @@ api = Api()
 # TODO: put request for each question 
 # TODO: put request for the test 
 
+
+# Create a question for an associated test
+@app.route('/api/tests/add_question', methods=['POST'])
+def add_question():
+    number = request.json.get('number')
+    description = request.json.get('description')
+    student_response = request.json.get('student_response')
+    score = request.json.get('score')
+
+    test_id = request.json.get('test_id')
+
+    # error handling 
+    question = Question(number=number,description=description,student_response=student_response,score=score,test_id=test_id)
+    db.session.add(question)
+    db.session.commit()
+
+    # confirmation message from the post 
+    return {
+        "test_id": test_id,
+        "number": number,
+        "description": description,
+        "student_response": student_response,
+        "score": score
+    }
+
+
+# creates a new test in the database and returns a JSON of the data inserted 
 @app.route('/api/tests/create', methods=['POST'])
 def create_test():
     name = request.json.get('name')
