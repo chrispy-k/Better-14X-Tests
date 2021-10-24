@@ -11,6 +11,9 @@ class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(80), unique=True)
     email = db.Column(db.String(100), unique=True)
+    firstname = db.Column(db.String(30))
+    lastname = db.Column(db.String(30))
+    type_user = db.Column(db.String(20)) # gonna hold the frontend to enforcing proper types lmao
     password_hash = db.Column(db.String(128))
 
     # setup one to many relationships 
@@ -41,9 +44,11 @@ class User(db.Model):
         user = User.query.get(data['id'])
         return user
     
-    def __init__(self, username, email):
+    def __init__(self, username, email, firstname, lastname):
         self.username = username
         self.email = email
+        self.firstname = firstname
+        self.lastname = lastname
 
     def __repr__(self):
         return f'User: {self.username}, Email: {self.email}'
