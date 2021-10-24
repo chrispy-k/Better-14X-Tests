@@ -9,7 +9,6 @@ api = Api()
 
 # TODO: Update user model 
 
-# TODO: get all questions for each test 
 # TODO: put request for each question 
 # TODO: put request for the test 
 
