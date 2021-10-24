@@ -2,10 +2,11 @@ import React, {Component, useState} from 'react';
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import { useHistory } from 'react-router-dom'
+import axios from 'axios'
 import "./Login.css";
 
 export default function Login() {
-    const [email, setEmail] = useState("");
+    const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const history = useHistory();
 
@@ -13,28 +14,34 @@ export default function Login() {
         history.push('/Register');
     }
 
-    function toDashPage() {
-        history.push('../dashboard/dashboard');
-    }
-
-    function validateForm() {
-        return email.length > 0 && password.length > 0;
-    }
+    // function toDashPage() {
+    //     history.push('../dashboard/dashboard');
+    // }
 
     function handleSubmit(event) {
         event.preventDefault();
+        axios.get(`/api/resource`, { username : password })
+        .then(function (response) {
+            console.log(response)
+            if (response !== null) {
+                history.push('../dashboard/dashboard');
+            } else {
+                alert('Error!');
+            }
+        })
+
     }
 
     return (
         <div className="Login">
         <Form onSubmit={handleSubmit}>
-            <Form.Group size="lg" controlId="email">
-            <Form.Label>Email</Form.Label>
+            <Form.Group size="lg" controlId="username">
+            <Form.Label>User Name</Form.Label>
             <Form.Control
                 autoFocus
                 type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
             />
             </Form.Group>
             <Form.Group size="lg" controlId="password">
@@ -45,7 +52,7 @@ export default function Login() {
                 onChange={(e) => setPassword(e.target.value)}
             />
             </Form.Group>
-            <Button block size="lg"  onClick={toDashPage}>
+            <Button block size="lg" onClick={handleSubmit}>
             Login
             </Button>
             <Button block size="lg" onClick={toRegisterPage}>
