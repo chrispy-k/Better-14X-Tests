@@ -1,4 +1,4 @@
-from .config import Config
+from .config_app import Config
 from passlib.apps import custom_app_context as pwd_context 
 from itsdangerous import (TimedJSONWebSignatureSerializer
                           as Serializer, BadSignature, SignatureExpired)

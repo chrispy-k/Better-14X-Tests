@@ -2,7 +2,7 @@ from flask import Flask
 from flask_migrate import Migrate
 
 app = Flask(__name__)
-app.config.from_object("config.Config")
+app.config.from_object("config_app.Config")
 
 # import api routes after app created
 @app.route('/')
