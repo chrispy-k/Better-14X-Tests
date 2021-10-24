@@ -1,4 +1,4 @@
-from flask import request, abort, jsonify, g, url_for
+from flask import json, request, abort, jsonify, g, url_for
 from flask_restful import Api
 from flask_httpauth import HTTPBasicAuth
 
@@ -11,7 +11,17 @@ api = Api()
 # TODO: put request for the test 
 
 
-@app.route('/api/tests/get_questions/<int:id>')
+# updates a question with the student response 
+""" @app.route('/api/tests/update_question/<int:id>', methods=['PUT'])
+def update_question(id):
+    question = Question.query.filter_by(id=id)
+    answer = request.json.get('answer')
+    question['student_response'] = str(answer)
+
+    return jsonify(question) """
+
+# gets all the questions for a given test 
+@app.route('/api/tests/get_questions/<int:id>', methods=['GET'])
 def get_questions_for_test(id):
     question_list = Question.query.filter_by(test_id=id)
     all_questions = [{

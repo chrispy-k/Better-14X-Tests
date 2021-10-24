@@ -26,3 +26,5 @@ curl -X GET http://127.0.0.1:5000/api/tests/get_tests/10
 Get a set of questions given a test id 
 curl -X GET http://127.0.0.1:5000/api/tests/get_questions/1
 
+Update a question with a student answer 
+curl -i -X PUT -H "Content-Type: application/json" -d '{"answer":"afjioefjiewo"}' http://127.0.0.1:5000/api/tests/edit_question/1
