@@ -1,8 +1,8 @@
 from flask import json, request, abort, jsonify, g, url_for
 from flask_restful import Api
 
-from .app import app 
-from .models import db, Test, Question
+from app import app 
+from models import db, Test, Question
 
 api = Api()
 

@@ -1,10 +1,9 @@
-from .config_app import Config
+from config import Config
 from passlib.apps import custom_app_context as pwd_context 
 from itsdangerous import (TimedJSONWebSignatureSerializer
                           as Serializer, BadSignature, SignatureExpired)
 
-from .db import db 
-                
+from db import db            
 
 class User(db.Model):
     __tablename__ = "users"

@@ -2,7 +2,8 @@ from flask import Flask
 from flask_migrate import Migrate
 
 app = Flask(__name__)
-app.config.from_object("config_app.Config")
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:root@localhost/better_143'
+app.config['SECRET_KEY'] = 'a b c d e'
 
 # import api routes after app created
 @app.route('/')
