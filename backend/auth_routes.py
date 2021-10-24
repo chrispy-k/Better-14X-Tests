@@ -16,7 +16,7 @@ def logout():
 
 # login route 
 @app.route('/api/auth/login', methods=['GET', 'POST'])
-def login():
+def loginUser():
     if current_user.is_authenticated:
         return redirect(url_for('/'))
     username = request.json.get('username')
