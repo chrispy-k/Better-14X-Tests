@@ -6,7 +6,7 @@ from app import app
 from models import db, User
 
 api = Api()
-db.init_app(app)
+#db.init_app(app)
 
 # registers a new User object
 @app.route('/api/auth/register', methods=['POST'])
