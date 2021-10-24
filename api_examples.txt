@@ -35,7 +35,7 @@ curl -i -X PUT -H "Content-Type: application/json" -d '{"score": "72"}' http://1
 
 ON HEROKU
 Login
-curl -i -X POST -H "Content-Type: application/json" -d {"username":"USERNAM777E","password":"PASSWORD"}' https://better143backend.herokuapp.com/api/auth/login
+curl -i -X POST -H "Content-Type: application/json" -d '{"username":"c","password":"123"}' https://better143backend.herokuapp.com/api/auth/login
 
 
 Register
