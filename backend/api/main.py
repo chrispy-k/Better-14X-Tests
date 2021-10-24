@@ -6,6 +6,9 @@ app = Flask(__name__)
 app.config.from_object("config.Config")
 
 # import api routes after app created
+@app.route('/')
+def greeting():
+    return "Greetings"
 from auth_routes import * 
 from test_routes import * 
 
