@@ -11,6 +11,12 @@ export default function Settings() {
                 </div>
                 <div class = "flex-class-dash">
                 <h1>Settings</h1>
+                <ol>
+                    <ul>Full name: John Johnson</ul>
+                    <ul>Display name: johnsonj</ul>
+                    <ul>Time zone: Pacific Standard Time</ul>
+                    <ul>UW email: johnsonj@uw.edu</ul>
+                </ol>
                 </div>
                 </div>
         </div>

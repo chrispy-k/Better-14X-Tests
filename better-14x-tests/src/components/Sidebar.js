@@ -18,7 +18,7 @@ const Sidebar = () => {
           <a
             href="/"
             className="text-decoration-none"
-            style={{ color: 'inherit' }}
+            style={{ color: 'inherit'}}
           >
             CSE Tests
           </a>

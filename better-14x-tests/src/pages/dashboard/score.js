@@ -12,7 +12,7 @@ export default function Score () {
                 <Sidebar />
             </div>
             <div class = "flex-child-dash">
-            <Card style={{ width: '25rem', borderRadius: '25px'}}>
+            <Card style={{ width: '20rem', borderRadius: '25px'}}>
             <Card.Body>
                 <Card.Title>CSE 142</Card.Title>
                 <Card.Subtitle className="mb-2 text-muted">Midterm 1</Card.Subtitle>
@@ -24,7 +24,7 @@ export default function Score () {
         </Card>
             </div>
             <div class = "flex-child-dash">
-            <Card style={{ width: '25rem', borderRadius: '25px' }}>
+            <Card style={{ width: '20rem', borderRadius: '25px' }}>
             <Card.Body>
                 <Card.Title>CSE 143</Card.Title>
                 <Card.Subtitle className="mb-2 text-muted">Midterm 1</Card.Subtitle>
@@ -36,7 +36,7 @@ export default function Score () {
         </Card>
             </div>
             <div class = "flex-child-dash">
-            <Card style={{ width: '25rem', borderRadius: '25px'}}>
+            <Card style={{ width: '20rem', borderRadius: '25px'}}>
             <Card.Body>
                 <Card.Title>CSE 373</Card.Title>
                 <Card.Subtitle className="mb-2 text-muted">Midterm 1</Card.Subtitle>

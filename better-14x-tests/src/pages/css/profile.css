@@ -1,9 +1,10 @@
 .flex-container {
     display: flex;
 }
-
-.flex-child-dash{
+.profile-card {
     flex: 1;
-    padding: 200x;
+    padding: 100px;
+    justify-content: center;
+    
 
-}  
+}
