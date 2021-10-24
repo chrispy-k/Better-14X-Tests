@@ -2,7 +2,7 @@ from flask import json, request, abort, jsonify, g, url_for
 from flask_restful import Api
 from flask_httpauth import HTTPBasicAuth
 
-from main import app 
+from app import app 
 from models import db, User
 
 api = Api()
