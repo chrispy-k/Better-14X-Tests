@@ -1,11 +1,42 @@
-from flask import json, request, abort, jsonify, g, url_for
+from flask import json, request, abort, jsonify, g, url_for, redirect
 from flask_restful import Api
 from flask_httpauth import HTTPBasicAuth
+from flask_login import current_user, login_user, logout_user
 
-from app import app 
+from app import app, login
 from models import db, User
 
 api = Api()
+
+# logout
+@app.route('/api/auth/logout')
+def logout():
+    logout_user()
+    return {
+        'data': 'You have logged out'
+    }
+
+# login route 
+@app.route('/api/auth/login', methods=['GET', 'POST'])
+def loginUser():
+    username = request.json.get('username')
+    password = request.json.get('password')
+    user = User.query.filter_by(username=username).first()
+    if user is None or not user.verify_password(password):
+        return {
+            'data': 'Bad credentials'
+        }
+    login_user(user, remember=True)
+    token = user.generate_auth_token()
+    return {
+        'data': 'Hello, %s!' % user.username,
+        'token': token.decode('ascii')
+    }
+
+# load user with given id 
+@login.user_loader
+def load_user(id):
+    return User.query.get(int(id))
 
 # registers a new User object
 @app.route('/api/auth/register', methods=['POST'])
