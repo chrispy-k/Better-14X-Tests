@@ -27,7 +27,7 @@ def loginUser():
             'data': 'Bad credentials'
         }
     login_user(user, remember=True)
-    token = g.user.generate_auth_token()
+    token = user.generate_auth_token()
     return {
         'data': 'Hello, %s!' % user.username,
         'token': token.decode('ascii')
