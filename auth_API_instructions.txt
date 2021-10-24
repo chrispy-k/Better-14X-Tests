@@ -28,3 +28,6 @@ curl -X GET http://127.0.0.1:5000/api/tests/get_questions/1
 
 Update a question with a student answer 
 curl -i -X PUT -H "Content-Type: application/json" -d '{"student_response":"afjioefjiewo"}' http://127.0.0.1:5000/api/tests/update_question/2
+
+Update a test with a grade
+curl -i -X PUT -H "Content-Type: application/json" -d '{"score": "72"}' http://127.0.0.1:5000/api/tests/grade/1
