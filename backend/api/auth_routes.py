@@ -12,13 +12,12 @@ api = Api()
 
 
 # updates a question with the student response 
-""" @app.route('/api/tests/update_question/<int:id>', methods=['PUT'])
+@app.route('/api/tests/update_question/<int:id>', methods=['PUT'])
 def update_question(id):
-    question = Question.query.filter_by(id=id)
-    answer = request.json.get('answer')
-    question['student_response'] = str(answer)
-
-    return jsonify(question) """
+    answer = request.json.get('student_response')
+    updated_question = Question.query.filter_by(id=id).update(dict(student_response=answer))
+    db.session.commit()
+    return {"answer": answer}
 
 # gets all the questions for a given test 
 @app.route('/api/tests/get_questions/<int:id>', methods=['GET'])
@@ -48,8 +47,6 @@ def get_tests_from_user(id):
         } for test in test_list
     ]
     return jsonify(all_tests)
-
-
 
 # Create a question for an associated test
 @app.route('/api/tests/add_question', methods=['POST'])
