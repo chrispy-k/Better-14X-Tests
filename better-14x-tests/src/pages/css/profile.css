@@ -1,0 +1,9 @@
+.flex-container {
+    display: flex;
+}
+
+.flex-child-dash{
+    flex: 1;
+    padding: 100px;
+
+}  

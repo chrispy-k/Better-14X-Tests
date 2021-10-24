@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .sidebar {
     position: fixed;
     top: 0;
@@ -26,3 +27,14 @@
     min-width: 0;
     width: 100%;
 }
+=======
+.flex-container {
+    display: flex;
+}
+
+.flex-child-dash{
+    flex: 1;
+    padding: 75px;
+
+}  
+>>>>>>> c50e981e7a3673a999e06ce9dce2fd80ca557b9c
