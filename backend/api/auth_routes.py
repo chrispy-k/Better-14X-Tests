@@ -7,11 +7,28 @@ from models import Question, db, User, Test
 
 api = Api()
 
-# TODO: post request to create test and its questions
 # TODO: get request to see all the current tests for a given user 
 # TODO: get request to load in all the questions (or maybe 1 for each page/number)
 # TODO: put request for each question 
 # TODO: put request for the test 
+
+
+# Get all the current tests given a user (id is for the user here)
+@app.route('/api/tests/get_tests/<int:id>', methods=['GET'])
+def get_tests_from_user(id):
+    # the id here == the owner_id in the User model 
+    test_list = Test.query.filter_by(owner_id=id)
+    all_tests = [{
+            'name': test.name,
+            'score': test.score,
+            'teacher': test.teacher,
+            'course': test.course,
+            'owner_id': test.owner_id
+        } for test in test_list
+    ]
+    print(all_tests)
+    return jsonify(all_tests)
+
 
 
 # Create a question for an associated test
