@@ -7,11 +7,25 @@ from models import Question, db, User, Test
 
 api = Api()
 
-# TODO: get request to see all the current tests for a given user 
-# TODO: get request to load in all the questions (or maybe 1 for each page/number)
+# TODO: Update user model 
+
+# TODO: get all questions for each test 
 # TODO: put request for each question 
 # TODO: put request for the test 
 
+
+@app.route('/api/tests/get_questions/<int:id>')
+def get_questions_for_test(id):
+    question_list = Question.query.filter_by(test_id=id)
+    all_questions = [{
+            'number': question.number,
+            'description': question.description,
+            'student_response': question.student_response,
+            'score': question.score,
+            'test_id': question.test_id
+        } for question in question_list
+    ]
+    return jsonify(all_questions)
 
 # Get all the current tests given a user (id is for the user here)
 @app.route('/api/tests/get_tests/<int:id>', methods=['GET'])
@@ -26,7 +40,6 @@ def get_tests_from_user(id):
             'owner_id': test.owner_id
         } for test in test_list
     ]
-    print(all_tests)
     return jsonify(all_tests)
 
 

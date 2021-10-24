@@ -80,7 +80,7 @@ class Question(db.Model):
     number = db.Column(db.Integer)
     description = db.Column(db.String(600))
     student_response = db.Column(db.String(1000))
-    score = db.column(db.Integer)
+    score = db.Column(db.Integer)
 
     # establish many to one w/ Test model 
     test_id = db.Column(db.Integer, db.ForeignKey('tests.id'))
@@ -92,5 +92,15 @@ class Question(db.Model):
         self.score = score 
         self.test_id = test_id
     
+    def serialize(self):
+            return {"id": self.id,
+                    "number": self.number,
+                    "description": self.description,
+                    "student_response": self.student_response,
+                    "score": self.score,
+                    "test_id": self.test_id
+                    }
+
+
     def __repr__(self):
         return f'Question #: {self.number}, Score: {self.score}'
