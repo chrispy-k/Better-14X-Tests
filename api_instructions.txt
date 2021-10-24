@@ -1,0 +1,28 @@
+'/api/auth/register' --> POST
+provide the username, email, first name, last name, password, and type_user to register a user
+
+'/api/auth/register/get_user/<int:id>' --> GET
+returns the user given the id 
+
+'/api/auth/token' --> POST 
+generates token for user with combo of username/pw
+
+
+'/api/tests/create' --> POST
+creates a test (see the api_examples.txt for the JSON props needed here)
+
+'/api/tests/add_question' --> POST
+add a question (see api_examples for JSON props) for a given test (test_id in JSON)
+
+'/api/tests/get_tests/<int:id>' --> GET
+get all the tests for a given user id 
+
+'/api/tests/get_questions/<int:id>' --> GET
+get all the questions for a given test id 
+
+'/api/tests/update_question/<int:id>' --> PUT 
+updates the question (w/ specific question_id) with a new student response (what they answered the question with)
+and changes the value of the student_response in the question
+
+'/api/tests/grade/<int:id>' --> PUT
+very similar to the update question, but this updates the score of a test (w/ given id)
