@@ -5,7 +5,6 @@ from app import app
 from models import db, Test, Question
 
 api = Api()
-#db.init_app(app)
 
 # update test score after grading
 @app.route('/api/tests/grade/<int:id>', methods=['PUT'])
