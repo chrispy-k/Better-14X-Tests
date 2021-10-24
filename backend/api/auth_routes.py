@@ -7,9 +7,13 @@ from models import Question, db, User, Test
 
 api = Api()
 
-# TODO: put request for each question 
-# TODO: put request for the test 
-
+# update test score after grading
+@app.route('/api/tests/grade/<int:id>', methods=['PUT'])
+def grade_test(id):
+    grade = request.json.get("score")
+    graded_test = Test.query.filter_by(id=id).update(dict(score=grade))
+    db.session.commit()
+    return {"score": grade}
 
 # updates a question with the student response 
 @app.route('/api/tests/update_question/<int:id>', methods=['PUT'])
