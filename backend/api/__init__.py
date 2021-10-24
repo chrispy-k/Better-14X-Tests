@@ -5,7 +5,7 @@ app = Flask(__name__)
 app.config.from_object("config.Config")
 
 # import api routes after app created
-from routes import * 
+from auth_routes import * 
 
 # Init db from the models.py file 
 db.init_app(app)

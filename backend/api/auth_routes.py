@@ -7,6 +7,35 @@ from models import db, User, Test
 
 api = Api()
 
+# TODO: post request to create test and its questions
+# TODO: get request to see all the current tests for a given user 
+# TODO: get request to load in all the questions (or maybe 1 for each page/number)
+# TODO: put request for each question 
+# TODO: put request for the test 
+
+@app.route('/api/tests/create', methods=['POST'])
+def create_test():
+    name = request.json.get('name')
+    score = request.json.get('score')
+    teacher = request.json.get('teacher')
+    course = request.json.get('course')
+
+    owner_id = request.json.get('owner_id')
+
+    # error handling
+    test = Test(name=name,score=score,teacher=teacher,course=course,owner_id=owner_id)
+    db.session.add(test)
+    db.session.commit()
+
+    # just to confirm 
+    return {
+        'name': name,
+        'score': score,
+        'teacher': teacher,
+        'course': course,
+        'owner_id': owner_id
+    }
+
 # registers a new User object
 @app.route('/api/auth/register', methods=['POST'])
 def register():

@@ -12,3 +12,7 @@ curl -u USERNAME:PASSWORD -i -X GET http://127.0.0.1:5000/api/resource
 
 2. Token method 
 curl -u TOKEN:unused -i -X GET http://127.0.0.1:5000/api/resource
+
+
+Create a new Test
+curl -i -X POST -H "Content-Type: application/json" -d '{"name":"NAME1","score":"95","teacher":"TEACHER1","course":"COURSE1","owner_id":"10"}' http://127.0.0.1:5000/api/tests/create
