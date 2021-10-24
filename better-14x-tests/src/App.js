@@ -5,7 +5,7 @@ import Home from './pages/home/Home';
 import Register from './pages/home/Register';
 import Dashboard from './pages/dashboard/dashboard';
 import Test from './pages/tests/test';
-
+import Profile from './pages/dashboard/profile';
 
 function App() {
   return (
@@ -15,6 +15,7 @@ function App() {
           <Switch>
             <Route path="/" exact component={() => <Home />} />
             <Route path="/register" component={() => <Register />} />
+            <Route path="/profile" component={() => <Profile />} />
             <Route path="/dashboard" component={() => <Dashboard />} />
             <Route path="/test" component={() => <Test />} />
           </Switch>
