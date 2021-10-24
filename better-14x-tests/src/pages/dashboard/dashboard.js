@@ -3,14 +3,15 @@ import Sidebar from '../../components/Sidebar.js'
 import {Container, Row, Col, Card, Form, Button } from "react-bootstrap";
 import { withRouter } from "react-router";
 import '../css/dashboard.css';
-export default function Dashboard() {
+
+export default function Dashboard () {
     return (
     <div>
         <div class ="flex-container">
             <div class = "flex-child 1">
                 <Sidebar />
             </div>
-            <div class = "flex-child2">
+            <div class = "flex-child-dash">
             <Card style={{ width: '18rem', borderRadius: '25px'}}>
             <Card.Body>
                 <Card.Title>CSE 142</Card.Title>
@@ -18,11 +19,11 @@ export default function Dashboard() {
                 <Card.Text>
                     Going over content in weeks 1-5.
                 </Card.Text>
-                <Card.Link href="#">Test Link</Card.Link>
+                <Card.Link href="/test">Test Link</Card.Link>
             </Card.Body>
         </Card>
             </div>
-            <div class = "flex-child2">
+            <div class = "flex-child-dash">
             <Card style={{ width: '18rem', borderRadius: '25px' }}>
             <Card.Body>
                 <Card.Title>CSE 143</Card.Title>
@@ -34,7 +35,7 @@ export default function Dashboard() {
             </Card.Body>
         </Card>
             </div>
-            <div class = "flex-child2">
+            <div class = "flex-child-dash">
             <Card style={{ width: '18rem', borderRadius: '25px'}}>
             <Card.Body>
                 <Card.Title>CSE 373</Card.Title>

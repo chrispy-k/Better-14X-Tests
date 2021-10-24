@@ -1,0 +1,11 @@
+.flex-container {
+  display: flex;
+}
+
+.flex-child2{
+  flex: 1;
+  border: 2px solid black;
+  text-align: left;
+  font-size: medium;
+
+} 

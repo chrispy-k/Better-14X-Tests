@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import Home from './pages/home/Home';
 import Register from './pages/home/Register';
 import Dashboard from './pages/dashboard/dashboard';
+import Test from './pages/tests/test';
 
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
             <Route path="/" exact component={() => <Home />} />
             <Route path="/register" component={() => <Register />} />
             <Route path="/dashboard" component={() => <Dashboard />} />
+            <Route path="/test" component={() => <Test />} />
           </Switch>
         </Router>
       </header>
