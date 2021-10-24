@@ -17,8 +17,8 @@ def logout():
 # login route 
 @app.route('/api/auth/login', methods=['GET', 'POST'])
 def loginUser():
-    if current_user.is_authenticated:
-        return redirect(url_for('/'))
+    #if current_user.is_authenticated:
+    #    return redirect(url_for('/'))
     username = request.json.get('username')
     password = request.json.get('password')
     user = User.query.filter_by(username=username).first()
@@ -30,7 +30,6 @@ def loginUser():
     return {
         'data': 'Hello, %s!' % user.username
     }
-
 
 @login.user_loader
 def load_user(id):
