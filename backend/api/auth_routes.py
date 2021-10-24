@@ -1,4 +1,4 @@
-from flask import request, abort, jsonify, g, url_for
+from flask import json, request, abort, jsonify, g, url_for
 from flask_restful import Api
 from flask_httpauth import HTTPBasicAuth
 
@@ -7,13 +7,21 @@ from models import Question, db, User, Test
 
 api = Api()
 
-# TODO: Update user model 
-
 # TODO: put request for each question 
 # TODO: put request for the test 
 
 
-@app.route('/api/tests/get_questions/<int:id>')
+# updates a question with the student response 
+""" @app.route('/api/tests/update_question/<int:id>', methods=['PUT'])
+def update_question(id):
+    question = Question.query.filter_by(id=id)
+    answer = request.json.get('answer')
+    question['student_response'] = str(answer)
+
+    return jsonify(question) """
+
+# gets all the questions for a given test 
+@app.route('/api/tests/get_questions/<int:id>', methods=['GET'])
 def get_questions_for_test(id):
     question_list = Question.query.filter_by(test_id=id)
     all_questions = [{
@@ -97,6 +105,9 @@ def create_test():
 def register():
     username = request.json.get('username')
     password = request.json.get('password')
+    firstname = request.json.get('firstname')
+    lastname = request.json.get('lastname')
+    type_user = request.json.get('type_user')
     email = request.json.get('email')
 
     if username is None or password is None:
@@ -110,7 +121,7 @@ def register():
     if User.query.filter_by(email=email).first() is not None:
         abort(400)
 
-    user = User(username=username,email=email)
+    user = User(username=username,email=email,firstname=firstname,lastname=lastname,type_user=type_user)
     user.hash_pw(password)
     db.session.add(user)
     db.session.commit()

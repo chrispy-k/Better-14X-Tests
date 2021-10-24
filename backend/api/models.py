@@ -44,11 +44,12 @@ class User(db.Model):
         user = User.query.get(data['id'])
         return user
     
-    def __init__(self, username, email, firstname, lastname):
+    def __init__(self, username, email, firstname, lastname, type_user):
         self.username = username
         self.email = email
         self.firstname = firstname
         self.lastname = lastname
+        self.type_user = type_user
 
     def __repr__(self):
         return f'User: {self.username}, Email: {self.email}'
