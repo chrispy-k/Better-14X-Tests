@@ -22,7 +22,6 @@ class Test extends React.Component {
     render() {
         return (
             <div>
-                <Header />
         <h3>CSE Midterm 1</h3>
         <div class = "flex-container">
             <div class = "flex-child2">

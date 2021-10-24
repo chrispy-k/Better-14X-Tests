@@ -7,6 +7,9 @@ import Dashboard from './pages/dashboard/dashboard';
 import Test from './pages/tests/test';
 import Profile from './pages/dashboard/profile';
 import Score from './pages/dashboard/score';
+import Settings from './pages/dashboard/settings';
+import Courses from './pages/dashboard/courses';
+
 
 function App() {
   return (
@@ -20,6 +23,8 @@ function App() {
             <Route path="/dashboard" component={() => <Dashboard />} />
             <Route path="/test" component={() => <Test />} />
             <Route path="/score" component={() => <Score />} />
+            <Route path="/settings" component={() => <Settings />} />
+            <Route path="/courses" component={() => <Courses />} />
           </Switch>
         </Router>
       </header>
