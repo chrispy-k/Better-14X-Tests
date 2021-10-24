@@ -13,6 +13,10 @@ export default function Login() {
       history.push('/Register');
   }
 
+  function toDashPage() {
+    history.push('../dashboard/dashboard');
+}
+
   function validateForm() {
     return email.length > 0 && password.length > 0;
   }
@@ -41,7 +45,7 @@ export default function Login() {
             onChange={(e) => setPassword(e.target.value)}
           />
         </Form.Group>
-        <Button block size="lg" type="submit" disabled={!validateForm()}>
+        <Button block size="lg"  onClick={toDashPage}>
           Login
         </Button>
         <Button block size="lg" onClick={toRegisterPage}>
@@ -51,3 +55,5 @@ export default function Login() {
     </div>
   );
 }
+
+//type="submit" disabled={!validateForm()}
