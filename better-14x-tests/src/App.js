@@ -6,6 +6,7 @@ import Register from './pages/home/Register';
 import Dashboard from './pages/dashboard/dashboard';
 import Test from './pages/tests/test';
 import Profile from './pages/dashboard/profile';
+import Score from './pages/dashboard/score';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
             <Route path="/profile" component={() => <Profile />} />
             <Route path="/dashboard" component={() => <Dashboard />} />
             <Route path="/test" component={() => <Test />} />
+            <Route path="/score" component={() => <Score />} />
           </Switch>
         </Router>
       </header>
