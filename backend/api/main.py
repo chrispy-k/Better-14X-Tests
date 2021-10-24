@@ -1,12 +1,13 @@
 from flask import Flask
 from flask_migrate import Migrate
-from models import db, User
+from models import db
 
 app = Flask(__name__)
 app.config.from_object("config.Config")
 
 # import api routes after app created
 from auth_routes import * 
+from test_routes import * 
 
 # Init db from the models.py file 
 db.init_app(app)
