@@ -1,7 +1,7 @@
 from flask import json, request, abort, jsonify, g, url_for
 from flask_restful import Api
 
-from main import app 
+from app import app 
 from models import db, Test, Question
 
 api = Api()
